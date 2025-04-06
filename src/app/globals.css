@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for ion grid website */
+.ion-grid-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.crystal-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.crystal-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
+
+.structure-placeholder {
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  min-height: 200px;
+}
+
+/* Atom animation styles */
+.atom {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.nucleus {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at 30% 30%, #f06, #903);
+  border-radius: 50%;
+  box-shadow: 0 0 20px rgba(255, 0, 102, 0.5);
+  z-index: 10;
+}
+
+.electron-shell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.electron-shell:nth-child(2) {
+  transform: rotate(60deg);
+}
+
+.electron-shell:nth-child(3) {
+  transform: rotate(120deg);
+}
+
+.electron {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  background: radial-gradient(circle at 30% 30%, #0df, #05a);
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.5);
+  animation: orbit 3s linear infinite;
+}
+
+.electron:nth-child(2) {
+  animation-delay: -1s;
+}
+
+.electron:nth-child(3) {
+  animation-delay: -2s;
+}
+
+@keyframes orbit {
+  0% {
+    transform: rotate(0deg) translateX(120px) rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg) translateX(120px) rotate(-360deg);
+  }
+}
+
+/* Crystal lattice grid styles */
+.lattice-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.ion {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.cation {
+  background: radial-gradient(circle at 30% 30%, #f06, #903);
+  color: white;
+}
+
+.anion {
+  background: radial-gradient(circle at 30% 30%, #0df, #05a);
+  color: white;
+}
+
+.ion:hover {
+  transform: scale(1.2);
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .lattice-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+  }
+  
+  .ion {
+    width: 30px;
+    height: 30px;
+    font-size: 0.8rem;
+  }
+  
+  .atom {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .nucleus {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .electron {
+    width: 12px;
+    height: 12px;
+  }
+  
+  @keyframes orbit {
+    0% {
+      transform: rotate(0deg) translateX(80px) rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg) translateX(80px) rotate(-360deg);
+    }
+  }
+}
